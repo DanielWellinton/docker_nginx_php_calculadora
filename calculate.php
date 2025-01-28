@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    if (strpos($expression, '/0') !== false) {
+    if (preg_match('#/0(\.0*)?$#', $expression)) {
         echo "Erro: Divisão por zero!";
         exit;
     }
